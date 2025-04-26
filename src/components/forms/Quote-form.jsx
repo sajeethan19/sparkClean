@@ -5,9 +5,29 @@ import { titleConfigs } from '../../Configurations/common-configs'
 
 function QuoteForm() {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const submitForm = (data) => {
-        console.log(data)
-    }
+    const submitForm = async (data) => {
+        try {
+          const response = await fetch('https://script.google.com/macros/s/AKfycbw6mh_gVt__0VTn7Folq62V7ZVKy6UFCNVlndTVB93zRkOQu_sC2xgU_irAHLba83M9/exec', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+      
+          const result = await response.json();
+          
+          if (result.status === "success") {
+            alert('Form submitted successfully!');
+            reset();
+          } else {
+            throw new Error(result.message || "Failed to submit form");
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert(error.message || 'There was an error submitting the form.');
+        }
+      }
 
     return (
         <div className='mainForm container py-5'>
