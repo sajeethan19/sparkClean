@@ -66,3 +66,7 @@ export const purposeOfInquiry = [
         value: 5
     },
 ]
+
+export const scriptConfig = {
+    scriptExecutionURL: 'https://script.google.com/macros/s/AKfycbw6mh_gVt__0VTn7Folq62V7ZVKy6UFCNVlndTVB93zRkOQu_sC2xgU_irAHLba83M9/exec'
+}

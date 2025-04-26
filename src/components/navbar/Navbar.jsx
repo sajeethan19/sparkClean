@@ -7,7 +7,7 @@ function Navbar({title = "Title", logoPath = ""}) {
         <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                <img src={logoPath} alt="Logo" width="30" height="24" class="d-inline-block align-text-top"/>
+                <img src={logoPath} alt="Logo" width="30" height="24" className="d-inline-block align-text-top"/>
                 {title}
                 </a>
             </div>
