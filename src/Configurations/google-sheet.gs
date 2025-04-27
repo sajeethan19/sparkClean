@@ -17,9 +17,9 @@ function doPost(e) {
       data.lname || '',
       data.email || '',
       data.phone || '',
-      data.serviceType || '',
-      data.useService || '',
-      data.purpose || '',
+      cleaningServiceType.filter(i => i.value == data.serviceType)[0]?.name || '',
+      useOfService.filter(i => i.value == data.useService)[0]?.name || '',
+      purposeOfInquiry.filter(i => i.value == data.purposeOfInquiry)[0]?.name || '',
       data.siteLocation || '',
       data.promoCode || '',
       data.membershipNumber || '',
@@ -52,3 +52,73 @@ function doGet(e) {
   output.setMimeType(ContentService.MimeType.JSON);
   return output;
 }
+
+const cleaningServiceType = [
+    {
+        name: "Service type A",
+        value: 1
+    },
+    {
+        name: "Service type B",
+        value: 2
+    },
+    {
+        name: "Service type c",
+        value: 3
+    },
+    {
+        name: "Service type D",
+        value: 4
+    },
+    {
+        name: "Service type E",
+        value: 5
+    },
+]
+
+const useOfService = [
+    {
+        name: "Use type A",
+        value: 1
+    },
+    {
+        name: "Use type B",
+        value: 2
+    },
+    {
+        name: "Use type c",
+        value: 3
+    },
+    {
+        name: "Use type D",
+        value: 4
+    },
+    {
+        name: "Use type E",
+        value: 5
+    },
+]
+
+const purposeOfInquiry = [
+    {
+        name: "Inquiry type A",
+        value: 1
+    },
+    {
+        name: "Inquiry type B",
+        value: 2
+    },
+    {
+        name: "Inquiry type c",
+        value: 3
+    },
+    {
+        name: "Inquiry type D",
+        value: 4
+    },
+    {
+        name: "Inquiry type E",
+        value: 5
+    },
+]
+
