@@ -8,6 +8,13 @@ body{
      url("./fonts/Sansation/Sansation-Bold.ttf") format("truetype");
     font-weight: bold;
    }
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"),
+     url("./fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: bold;
+   }
    
 .mainForm{
     margin: 20px;

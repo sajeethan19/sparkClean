@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <div>
-      <Navbar title={titleConfigs.navbarTitle} logoPath={imagePaths.navbarLogo}/>
+      <Navbar title={titleConfigs.navbarTitle} subTitle={titleConfigs.subTitle} logoPath={imagePaths.navbarLogo}/>
       <QuoteForm/>
     </div>
       
