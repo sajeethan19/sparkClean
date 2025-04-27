@@ -19,7 +19,7 @@ function QuoteForm() {
                 mode: 'no-cors'
             });
 
-            alert('Form submitted successfully!');
+            alert( [200, 302].includes(response.status) ? 'Form submitted successfully!': (response.message || 'Form submitted fail!' ) );
             reset();
         } catch (error) {
             console.error('Error:', error);
