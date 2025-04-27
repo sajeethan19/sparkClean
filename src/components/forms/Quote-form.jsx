@@ -10,7 +10,7 @@ function QuoteForm() {
     const submitForm = async (data) => {
         setLoading(true);
         try {
-            const response = await fetch(scriptConfig.scriptExecutionURL, {
+            const response = await fetch(`https://script.google.com/macros/s/${scriptConfig.deploymentId}/exec`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -19,7 +19,8 @@ function QuoteForm() {
                 mode: 'no-cors'
             });
 
-            alert( [200, 302].includes(response.status) ? 'Form submitted successfully!': (response.message || 'Form submitted fail!' ) );
+            console.log(response.status)
+            alert( ([200, 302, 0].includes(response.status) || response.ok || response.redirected) ? 'Form submitted successfully!': (response.message || 'Form submitted fail!' ) );
             reset();
         } catch (error) {
             console.error('Error:', error);
@@ -99,8 +100,9 @@ function QuoteForm() {
                         className={`form-select ${errors.serviceType ? 'is-invalid' : ''}`}
                         id="service"
                         {...register("serviceType", { required: "Service type is required" })}
+                        defaultValue={0}
                     >
-                        <option value="" disabled selected>Choose...</option>
+                        <option value={0} disabled >Choose...</option>
                         {cleaningServiceType.map(type => 
                             <option key={type.value} value={type.value}>{type.name}</option>
                         )}
@@ -114,8 +116,9 @@ function QuoteForm() {
                         className={`form-select ${errors.useService ? 'is-invalid' : ''}`}
                         id="useService"
                         {...register("useService", { required: "Use of service is required" })}
+                        defaultValue={0}
                     >
-                        <option value="" disabled selected>Choose...</option>
+                        <option value={0} disabled >Choose...</option>
                         {useOfService.map(type => 
                             <option key={type.value} value={type.value}>{type.name}</option>
                         )}
@@ -129,8 +132,9 @@ function QuoteForm() {
                         className={`form-select ${errors.purpose ? 'is-invalid' : ''}`}
                         id="inquiry"
                         {...register("purpose", { required: "Purpose is required" })}
+                        defaultValue={0}
                     >
-                        <option value="" disabled selected>Choose...</option>
+                        <option value={0} disabled >Choose...</option>
                         {purposeOfInquiry.map(type => 
                             <option key={type.value} value={type.value}>{type.name}</option>
                         )}

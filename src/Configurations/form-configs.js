@@ -68,5 +68,5 @@ export const purposeOfInquiry = [
 ]
 
 export const scriptConfig = {
-    scriptExecutionURL: 'https://script.google.com/macros/s/AKfycbyI-xOBMSPwk0eEciqYsXTixTVoDsGcgi0pCi6FiQmHJkNiJgK1hqg3srsLZzowpZzY/exec'
+    deploymentId: 'AKfycbw2b-T-5MvbB1t4MjtAQ1sM6pXC-217tU_qC9sPyy7c3va3-Hf9zGwla6QLA2z8Ptnw'
 }

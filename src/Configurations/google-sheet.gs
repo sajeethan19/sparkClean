@@ -1,3 +1,5 @@
+// google script v3 deployed -Sajeethan-
+
 function doPost(e) {
   try {
     if (!e || !e.postData || !e.postData.contents) {
@@ -19,7 +21,7 @@ function doPost(e) {
       data.phone || '',
       cleaningServiceType.filter(i => i.value == data.serviceType)[0]?.name || '',
       useOfService.filter(i => i.value == data.useService)[0]?.name || '',
-      purposeOfInquiry.filter(i => i.value == data.purposeOfInquiry)[0]?.name || '',
+      purposeOfInquiry.filter(i => i.value == data.purpose)[0]?.name || '',
       data.siteLocation || '',
       data.promoCode || '',
       data.membershipNumber || '',
